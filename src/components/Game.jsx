@@ -1,7 +1,7 @@
 const Game = ({id, title, released}) => {
     return(
-        <div>
-            <h1>{title}</h1>
+        <div className="bg-red">
+            <h1 className="text-white">{title}</h1>
         </div>
     )
 }
