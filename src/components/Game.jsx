@@ -1,4 +1,4 @@
-const Game = ({id, name, released, background_image, rating, genres}) => {
+const Game = ({id, name, background_image, released, rating, genres}) => {
     return(
         <>
         <div className='relative w-full h-[200px]'>
