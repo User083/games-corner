@@ -5,7 +5,7 @@ function App() {
 
 
   return (
-    <div className='w-full h-screen'>
+    <div className='bg-primary'>
     <h1>Games Corner</h1>
     <Home/>
     </div>
