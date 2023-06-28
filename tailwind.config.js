@@ -1,10 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
-  content: ["./src/**/*.{js, jsx}"],
-  mode: "jit",
+  content: ["./src/**/*.{js, jsx, ts, tsx}"],
   theme: {
-    extend: {
-    
+    extend: {    
       boxShadow: {
       card: "0px 35px 120px -15px #211e35",
     },
