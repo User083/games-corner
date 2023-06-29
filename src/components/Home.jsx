@@ -3,6 +3,7 @@ import useAxios from "../hooks/useAxios";
 import { GameApp } from "../api";
 import axios from "../../public/apis/rawg"
 import { useState } from "react";
+import {loader} from "../assets"
 
 const Home = () => {
     const [option, setOption] = useState("");
@@ -43,8 +44,8 @@ const Home = () => {
     </div>
     </div>
     </div> 
-    <div className='bg-black-100'>
-            {loading && <p className='text-highlight font-medium animate-pulse text-center'>Loading...</p>}
+    <div className='bg-black-100 flex flex-wrap justify-center items-center w-full'>
+            {loading && <img src={loader} className="animate-spin h-[50px]"/>}
             {!loading && error && <p className='text-secondary text-center font-medium'>{error}</p>}
         <div className='w-full bg-black-100'>
             {!loading && !error && games &&   
