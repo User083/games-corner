@@ -5,8 +5,10 @@ import axios from "../../public/apis/rawg"
 import { useState } from "react";
 import {loader} from "../assets"
 
+
 const Home = () => {
     const [option, setOption] = useState("");
+    const [selected, setSelected] = useState("");
     const [games, error, loading, refetch] = useAxios({
         axiosInstance: axios,
         method: 'GET',
@@ -55,11 +57,11 @@ const Home = () => {
         >  {games.map((game, index) => (
             <Game
             index={index}
-            key={`game-${game.id}`}
+            key={game.id}
             {...game}
+            onClick={()=>{setSelected(game.id)}}
             />
         ))}</div>}
-
         {!loading && !error && !games && <p className='text-highlight'>No results found</p>}
         </div>
         </div>                

@@ -1,4 +1,5 @@
 import Home from "./Home";
 import Game from "./Game";
+import InfoCard from "./InfoCard";
 
-export {Home, Game}
+export {Home, Game, InfoCard}

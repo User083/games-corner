@@ -1,9 +1,26 @@
+import { motion } from "framer-motion"
+import { useState } from "react"
+
 const Game = ({id, name, background_image, released, rating, genres}) => {
+
     return(
         <>
+                <motion.div
+  initial={{ scale: 0 }}
+  animate={{ rotate: 360, scale: 1 }}
+  transition={{
+    type: "spring",
+    stiffness: 260,
+    damping: 20}}
+  whileHover={{ scale: 1.2}}
+  whileTap={{
+    rotate: -10,
+    borderRadius: "100%"
+  }}
+>
         <div className="bg-black-100 sm:w-[250px] w-full shadow-card rounded">
 
-                  <div className='relative w-full h-[200px]'>
+                  <div className='relative w-full h-[250px]'>
           <img src={background_image}
           alt={name}
           className="w-full h-full object-cover"/>
@@ -21,7 +38,7 @@ const Game = ({id, name, background_image, released, rating, genres}) => {
           ))}
         </div>  
         </div>
-
+        </motion.div>
         </>
 
     )
