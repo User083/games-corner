@@ -1,10 +1,9 @@
 import { motion } from "framer-motion"
-import { useState } from "react"
 
-const Game = ({id, name, background_image, released, rating, genres}) => {
+const Game = ({id, name, background_image, released, rating, genres, playtime, updated, platforms, short_screenshots, suggestions_count, metacritic, stores}) => {
 
     return(
-        <>
+    
                 <motion.div
   initial={{ scale: 0 }}
   animate={{ rotate: 360, scale: 1 }}
@@ -14,18 +13,19 @@ const Game = ({id, name, background_image, released, rating, genres}) => {
     damping: 20}}
   whileHover={{ scale: 1.2}}
   whileTap={{
-    rotate: -10,
     borderRadius: "100%"
   }}
->
-        <div className="bg-black-100 sm:w-[250px] w-full shadow-card rounded">
 
-                  <div className='relative w-full h-[250px]'>
+>
+        <div className="bg-black-100 sm:w-[250px] w-full shadow-card rounded"
+        >
+
+                  <div className='relative w-full h-[200px]'>
           <img src={background_image}
           alt={name}
           className="w-full h-full object-cover"/>
         </div>        
-        <div className='mt-5 px-5 h-[150px]'>
+        <div className='mt-5 px-5 h-[200px]'>
           <h3 className='text-white-100 font-bold text-[24px]'>{name}</h3>
           <p className='mt-2 text-secondary font-mono text-[14px]'>Released: {released}</p>
           <p className='mt-2 text-secondary font-mono text-[14px]'>Rating: {rating}</p>
@@ -39,7 +39,7 @@ const Game = ({id, name, background_image, released, rating, genres}) => {
         </div>  
         </div>
         </motion.div>
-        </>
+     
 
     )
 }
