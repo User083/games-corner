@@ -1,11 +1,15 @@
-import {Game} from "./";
+import {Game, InfoCard} from "./";
 import useAxios from "../hooks/useAxios";
 import { GameApp } from "../api";
 import axios from "../../public/apis/rawg"
 import { useState } from "react";
+import {loader} from "../assets"
+// import { motion } from "framer-motion";
+
 
 const Home = () => {
     const [option, setOption] = useState("");
+    // const [selected, setSelected] = useState(null);
     const [games, error, loading, refetch] = useAxios({
         axiosInstance: axios,
         method: 'GET',
@@ -14,7 +18,7 @@ const Home = () => {
           timeout : 5000
         }
       });
-
+      
     return(
         <>
          <div className='w-full xl:w-screen bg-black-100 flex flex-col justify-evenly items-center py-10'>
@@ -43,10 +47,18 @@ const Home = () => {
     </div>
     </div>
     </div> 
-    <div className='bg-black-100'>
-            {loading && <p className='text-highlight font-medium animate-pulse text-center'>Loading...</p>}
+     {/* <motion.div
+        className="z-10 mt-20 flex justify-center items-start max-w-[1500px] max-h-[1000px] bg-white">
+          <button className="bg-primary hover:animate-pulse rounded z-2 py-1 px-1"
+          onClick={() => setSelected(null)}>X</button>
+          <InfoCard {...selected}/>
+        </motion.div> */}
+    <div className='bg-black-100 flex flex-wrap justify-center items-center w-full'>
+   
+            {loading && <img src={loader} className="animate-spin h-[50px]"/>}
             {!loading && error && <p className='text-secondary text-center font-medium'>{error}</p>}
         <div className='w-full bg-black-100'>
+          
             {!loading && !error && games &&   
 
         <div
@@ -54,11 +66,14 @@ const Home = () => {
         >  {games.map((game, index) => (
             <Game
             index={index}
-            key={`game-${game.id}`}
+            key={game.id}
             {...game}
+            
             />
-        ))}</div>}
-
+        ))}
+      
+        
+        </div>}
         {!loading && !error && !games && <p className='text-highlight'>No results found</p>}
         </div>
         </div>                
