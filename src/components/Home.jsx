@@ -2,7 +2,7 @@ import {Game, InfoCard} from "./";
 import useAxios from "../hooks/useAxios";
 import { GameApp } from "../api";
 import axios from "../../public/apis/rawg"
-// import { useState } from "react";
+import { useState } from "react";
 import {loader} from "../assets"
 // import { motion } from "framer-motion";
 
